@@ -7,8 +7,6 @@
   <style>
     :root {
       --bg: #0f1318;
-      --bg-2: #151b21;
-      --panel: #171d24;
       --line: #2a333d;
       --text: #d8dde3;
       --muted: #a5afb9;
@@ -16,11 +14,6 @@
       --accent: #4da3d9;
       --max-width: 980px;
     }
-    .card {
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.02);
-  padding: 2rem;
-}
 
     * {
       box-sizing: border-box;
@@ -47,12 +40,18 @@
       text-decoration: underline;
     }
 
+    .card {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      padding: 2rem;
+    }
+
     .hero {
       height: 34vh;
       min-height: 220px;
       background:
         linear-gradient(rgba(38, 86, 126, 0.72), rgba(38, 86, 126, 0.72)),
-        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80") center/cover;
+        url("websitephoto.jpg") center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -135,22 +134,23 @@
 
     .about-layout {
       display: grid;
-      grid-template-columns: 360px 1fr;      gap: 3rem;
+      grid-template-columns: 220px 1fr;
+      gap: 4rem;
       align-items: start;
+      max-width: 820px;
+      margin: 0 auto;
     }
 
     .portrait {
       width: 100%;
-      max-width: 220px;
-      aspect-ratio: 4 / 5;
-      background: #202831;
       border: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin: 0 auto;
+      background: #202831;
+    }
+
+    .portrait img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
     }
 
     .about-text h3,
@@ -185,7 +185,7 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
       border: 1px solid var(--line);
       display: grid;
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 360px 1fr;
       margin: 0 0 1.5rem;
       min-height: 250px;
     }
@@ -231,6 +231,38 @@
       padding: 2rem;
     }
 
+ .ai-layout {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-base {
+  width: 85%;
+  border-radius: 10px;
+  opacity: 0.95;
+}
+
+.ai-overlay {
+  position: absolute;
+  width: 120px;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.6);
+  border: 2px solid #111;
+}
+
+.ai-left {
+  top: 10px;
+  left: 18px;
+}
+
+.ai-right {
+  top: 10px;
+  right: 18px;
+}
     footer {
       padding: 2rem 1rem 3rem;
       text-align: center;
@@ -238,10 +270,18 @@
       font-size: 0.95rem;
     }
 
+
+
     @media (max-width: 800px) {
       .about-layout,
-      .project-card {
+      .project-card,
+      .two-col-list {
         grid-template-columns: 1fr;
+      }
+
+      .portrait {
+        max-width: 220px;
+        margin: 0 auto 1.5rem;
       }
 
       .project-image {
@@ -249,10 +289,7 @@
         border-right: none;
         border-bottom: 1px solid var(--line);
       }
-
-      .two-col-list {
-        grid-template-columns: 1fr;
-      }
+      
     }
   </style>
 </head>
@@ -264,15 +301,15 @@
     </div>
   </header>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
   <main>
     <section id="about">
@@ -281,300 +318,266 @@
         <div class="section-rule"></div>
 
         <div class="about-layout">
-          <div class="portrait"><img src="me.jpg" alt="Andrew Tomfohrde" style="width:100%; height:100%; object-fit:cover;"></div>
+          <div class="portrait">
+            <img src="me.jpg" alt="Andrew Tomfohrde">
+          </div>
 
           <div class="about-text">
             <h3>Background</h3>
             <p>
-              This section can introduce who you are, what you study, and the kind of work you enjoy.
-              Keep it simple and readable, similar to an academic or research portfolio site.
-            </p>
             <p>
-              You can also use this area to briefly describe your interests in software engineering,
-              artificial intelligence, systems, networking, or any other focus areas you want to highlight.
+              Recent Graduate as a Computer & Information Science student from University of Minnesota. I have a broad range of technical interests involving machine learning, computer graphics, visualization, IT & data management. 
+              What motivates me most are innovative technical solutions used to support environmental and medical industries. I explored different technical areas through my projects with a goal of building tools that can contribute to a positive, real-world impact.  
+              My long-term goal is to contribute to projects that advance sustainable and ethical innovation. Building systems that improve resource management, healthcare outcomes, and environmental resilience. Through my projects and research, I aim to bridge technology, strategy, and real-world impact.
+            </p>            </p>
+            <p>
             </p>
 
-            <h3 class="subheading">Interests</h3>
-            <ul class="two-col-list">
-              <li>Placeholder interest</li>
-              <li>Placeholder interest</li>
-              <li>Placeholder interest</li>
-              <li>Placeholder interest</li>
-              <li>Placeholder interest</li>
-              <li>Placeholder interest</li>
-            </ul>
-          </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="section-rule"></div>
+
+        <div class="card">
+          <h3 class="subheading">University of Minnesota</h3>
+          <p>Computer & Information Science Student</p>
+
+          <h3 class="subheading">Relevant Coursework</h3>
+<ul class="simple-list">
+
+<li>CSCI 1133 — Introduction to Programming Concepts</li>
+<li>CSCI 1933 — Intro Algorithms & Data Structures</li>
+<li>CSCI 2081W — Intro Software Development</li>
+<li>CSCI 2011 — Discrete Structures</li>
+<li>CSCI 2021 — Machine Architecture & Organization</li>
+<li>CSCI 3901 — Undergraduate Research in CS</li>
+<li>CSCI 3081W — Program Design & Development</li>
+<li>CSCI 4041 — Algorithms & Data Structures</li>
+<li>CSCI 4211 — Introduction to Computer Networks</li>
+<li>CSCI 4511W — Introduction to Artificial Intelligence</li>
+<li>CSCI 4481 — Computational Techniques for Genomics</li>
+<li>CSCI 5994 — Directed Research</li>
+
+<li>IDSC 3001 — Info Systems & Digital Transformation</li>
+<li>IDSC 3104 — Enterprise Systems</li>
+<li>IDSC 3103 — Data Modeling</li>
+<li>IDSC 3202 — Systems Analysis & Modeling</li>
+<li>MGMT 3001 — Foundations of Management</li>
+<li>SCO 3001 — Sustainable Supply Chain & Operations</li>
+<li>BA 2551 — Business Statistics in R</li>
+<li>ACCT 2051 — Intro Financial Accounting</li>
+<li>BA 2051 — Business Scenarios in Excel</li>
+<li>ECON 1101 — Principles of Microeconomics</li>
+
+<li>ESPM 1011 — Issues in the Environment</li>
+<li>ENGW 1101W — Intro Creative Writing</li>
+<li>CSCL 1201W — Cinema</li>
+
+
+
+
+
+
+
+
+
+
+</ul>
         </div>
       </div>
     </section>
 
-    <section id="education">
-  <div class="container">
-    <h2 class="section-title">Education</h2>
-    <div class="section-rule"></div>
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="section-rule"></div>
 
-    <div class="card">
-      <h3 class="subheading">University of Minnesota</h3>
-      <p>
-        Computer & Information Science Student
-      </p>
+        <article class="project-card">
+          <div class="project-image" style="flex-direction: column; gap: 12px;">
+            <img src="fundascameraeye.png" alt="Retinal imaging results" style="width:100%; border-radius:8px;">
+            <img src="fundascamera.png" alt="Fundus camera hardware prototype" style="width:100%; border-radius:8px;">
+          </div>
 
-      <h3 class="subheading">Relevant Coursework</h3>
-      <ul class="simple-list">
-        <li>Course placeholder</li>
-        <li>Course placeholder</li>
-        <li>Course placeholder</li>
-        <li>Course placeholder</li>
-      </ul>
-    </div>
-  </div>
-</section>
+          <div class="project-copy">
+            <h3>Telehealth Fundus Camera</h3>
+            <p>
+              Helped develop a fundus camera system under Dan Orban at the Earl E. Bakken Medical Devices Center.
+              The project focused on designing a portable retinal imaging device capable of remote screening and image capture.
+            </p>
+            <p>
+              Contributions included exploring remote communication approaches for Raspberry Pi integration,
+              investigating VNC tunneling and WebSocket-based solutions, and supporting hardware/software interaction
+              for camera control, preview, and capture workflows.
+            </p>
 
-<section id="projects">
-  <div class="container">
-    <h2 class="section-title">Projects</h2>
-    <div class="section-rule"></div>
+            <div class="meta-links">
+              <span class="muted">
+                Tools: Raspberry Pi · Remote Networking · VNC · WebSockets · Stepper Motor Control · Hardware Prototyping
+              </span>
+            </div>
+          </div>
+        </article>
 
-    <article class="project-card">
+         <article class="project-card">
+          <div class="project-image" style="flex-direction: column; gap: 12px;">
+            <img src="geneai.png" alt="Retinal imaging results" style="width:100%; border-radius:8px;">
+          </div>
 
-      <div class="project-image" style="flex-direction: column; gap: 12px;">
-        <img src="fundascameraeye.png"
-             alt="Retinal imaging results"
-             style="width:100%; border-radius:8px;">
+          <div class="project-copy">
+            <h3>Gene Start Site Prediction using Machine Learning</h3>
+            <p>
+              Conducted a comparative machine learning study on human and bacterial genomes
+              to evaluate how genome structure impacts translation start-site prediction accuracy.
+              The project analyzed multiple classical and deep learning approaches on sequence classification tasks.
+            </p>
+            <p>
+              Implemented Logistic Regression, Random Forest, XGBoost, Multilayer Perceptrons,
+              and 1D Convolutional Neural Networks using both one-hot encoded DNA windows and k-mer frequency features.
+              Experimental results showed bacterial datasets achieved up to <strong>95–96% accuracy</strong>,
+              while human datasets plateaued near 55–60% due to biological complexity and weaker sequence motifs.
+            </p>
+            <p>
+              This work demonstrated that prediction performance is fundamentally constrained by genomic structure,
+              highlighting how machine learning limitations can arise from underlying biological variability
+              rather than model architecture alone.
+            </p>
 
-        <img src="fundascamera.png"
-             alt="Fundus camera hardware prototype"
-             style="width:100%; border-radius:8px;">
+            <div class="meta-links">
+              <span class="muted">
+                Tools: Python · Scikit-learn · XGBoost · PyTorch · CNNs · Genomic Feature Engineering · Data Analysis
+              </span>
+            </div>
+          </div>
+        </article>
+
+       <article class="project-card">        
+            <div class="project-image" style="flex-direction: column; gap: 12px;">
+            <img src="bus.png" alt="Retinal imaging results" style="width:100%; border-radius:8px;">
+          </div>
+
+          <div class="project-copy">
+            <h3>Visual Transit Simulator — Bus Stop Management System</h3>
+            <p>
+              Designed and implemented a Java-based bus stop management system that modeled stops,
+              routes, vehicles, and passenger flow within a larger transit simulation environment.
+              The system supported dynamic state updates and realistic movement of vehicles and riders
+              across configurable transit lines.
+            </p>
+            <p>
+              Integrated backend simulation logic with a web-based visualization layer using JSON messaging
+              to display real-time vehicle locations, stop activity, and passenger interactions in the browser.
+              This enabled a live view of simulation progress and system behavior.
+            </p>
+            <p>
+              Applied object-oriented design principles, UML modeling, and collaborative Git workflows
+              while working in a multi-file team codebase. The project strengthened experience in simulation design,
+              software architecture, and full-stack system integration.
+            </p>
+
+            <div class="meta-links">
+              <span class="muted">
+                Tools: Java · Git · Web Visualization · JSON Messaging · Object-Oriented Design · Agile Development
+              </span>
+              <br>
+              <a href="https://github.com/andrewtomfohrde/BusTransitWebsite" target="_blank">View GitHub Repository</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image" style="flex-direction: column; gap: 12px;">
+            <img src="ai4earth2.png" alt="Retinal imaging results" style="width:100%; border-radius:8px;">
+            <img src="ai4earth1.png" alt="Fundus camera hardware prototype" style="width:100%; border-radius:8px;">
+          </div>
+
+          <div class="project-copy">
+            <h3>Arctic Lakes Segmentation using Deep Learning</h3>
+            <p>
+              Conducted research through the National Science Foundation AI for Earth internship
+              to develop a deep learning pipeline for identifying Arctic lake regions from
+              multi-band Sentinel-2 satellite imagery.
+            </p>
+            <p>
+              Designed and trained a custom U-Net convolutional neural network in PyTorch,
+              implementing a full training workflow including loss computation using Binary Cross Entropy,
+              optimizer updates with Adam, and multi-epoch evaluation of model convergence.
+            </p>
+            <p>
+              Applied preprocessing, visualization, and prediction overlay techniques to compare
+              segmentation outputs with ground truth labels. Model performance was evaluated using
+              confusion matrices, precision, recall, F1 score, and Intersection-over-Union (IoU)
+              to measure boundary accuracy of Arctic lake detection.
+            </p>
+
+            <div class="meta-links">
+              <span class="muted">
+                Tools: PyTorch · U-Net · Satellite Imagery · Computer Vision · Model Evaluation · Remote Sensing
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image" style="padding:0;">
+            <img src="scrabble.png" alt="Scrabble AI search algorithm comparison" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+
+          <div class="project-copy">
+            <h3>Scrabble AI — Search Algorithm Comparison</h3>
+            <p>
+              Developed an AI-driven Scrabble simulation to compare multiple search strategies
+              for selecting optimal word placements under constrained board and tile conditions.
+            </p>
+            <p>
+              Implemented Monte Carlo Tree Search (MCTS), Beam Search, A*, Greedy Best-First Search,
+              and Depth-First Search in Python to explore move selection strategies and decision quality.
+              Algorithms were evaluated through head-to-head AI matchups.
+            </p>
+            <p>
+              Measured performance using custom metrics including win rate, runtime efficiency,
+              and memory usage. Collaborated on core game logic and testing workflows using Git,
+              strengthening experience in algorithm analysis, experimentation, and AI system design.
+            </p>
+
+            <div class="meta-links">
+              <span class="muted">
+                Tools: Python · MCTS · A* · Beam Search · Algorithm Analysis · Game AI · Performance Evaluation
+              </span>
+            </div>
+          </div>
+        </article>
       </div>
+    </section>
 
-      <div class="project-copy">
-        <h3>Telehealth Fundus Camera</h3>
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="section-rule"></div>
 
-        <p>
-          Developed a low-cost telehealth fundus camera system under Dan Orban at the Earl E. Bakken Medical Devices Center.
-          The project focused on designing a portable retinal imaging device capable of remote screening and image capture.
-        </p>
+        <div class="card">
+          <h3 class="subheading">Programming Languages</h3>
+          <p class="muted">
+            Python · Java · C · C# · JavaScript · HTML · CSS · .NET
+          </p>
 
-        <p>
-          Contributions included exploring remote communication approaches for Raspberry Pi integration,
-          investigating VNC tunneling and WebSocket-based solutions, and supporting hardware/software interaction
-          for camera control, preview, and capture workflows.
-        </p>
+          <h3 class="subheading">Machine Learning & Data</h3>
+          <p class="muted">
+            PyTorch · Deep Learning · CNNs · U-Net · Computer Vision · Model Evaluation · Algorithm Analysis ·
+            Data Preprocessing · Performance Benchmarking · LLM Concepts · MySQL · RStudio · Tableau · Power BI
+          </p>
 
-        <p>
-          The system combined collapsible mechanical design, stepper motor electronics, and day/night camera imaging
-          to enable retinal data collection from both model and human eye environments.
-        </p>
-
-        <div class="meta-links">
-          <span class="muted">
-            Tools: Raspberry Pi · Remote Networking · VNC · WebSockets · Stepper Motor Control · Hardware Prototyping
-          </span>
+          <h3 class="subheading">Systems, Tools & Platforms</h3>
+          <p class="muted">
+            Git · Agile Development · CI/CD Pipelines · AWS · Azure · Docker · Atlassian ·
+            Visual Studio · IntelliJ · GDB Debugging · Network Troubleshooting · WebSockets ·
+            JSON Messaging · Object-Oriented Design · Simulation Systems · Technical Documentation ·
+            Microsoft 365 · Excel · Active Directory · SAP (ERP) · Salesforce (CRM)
+          </p>
         </div>
       </div>
-
-    </article>
-
-    <article class="project-card">
-
-      <div class="project-image" style="padding:0;">
-        <img src="genomics.png"
-             alt="Gene start site prediction models"
-             style="width:100%; height:100%; object-fit:cover;">
-      </div>
-
-      <div class="project-copy">
-        <h3>Gene Start Site Prediction using Machine Learning</h3>
-
-        <p>
-          Conducted a comparative machine learning study on human and bacterial genomes
-          to evaluate how genome structure impacts translation start-site prediction accuracy.
-          The project analyzed multiple classical and deep learning approaches on sequence classification tasks.
-        </p>
-
-        <p>
-          Implemented Logistic Regression, Random Forest, XGBoost, Multilayer Perceptrons,
-          and 1D Convolutional Neural Networks using both one-hot encoded DNA windows and k-mer frequency features.
-          Experimental results showed bacterial datasets achieved up to <strong>95–96% accuracy</strong>,
-          while human datasets plateaued near 55–60% due to biological complexity and weaker sequence motifs.
-        </p>
-
-        <p>
-          This work demonstrated that prediction performance is fundamentally constrained by genomic structure,
-          highlighting how machine learning limitations can arise from underlying biological variability
-          rather than model architecture alone.
-        </p>
-
-        <div class="meta-links">
-          <span class="muted">
-            Tools: Python · Scikit-learn · XGBoost · PyTorch · CNNs · Genomic Feature Engineering · Data Analysis
-          </span>
-        </div>
-      </div>
-
-    </article>
-
-    <article class="project-card">
-
-  <div class="project-image" style="padding:0;">
-    <img src="transit.png"
-         alt="Visual Transit Simulator bus stop management system"
-         style="width:100%; height:100%; object-fit:cover;">
-  </div>
-
-  <div class="project-copy">
-
-    <h3>Visual Transit Simulator — Bus Stop Management System</h3>
-
-    <p>
-      Designed and implemented a Java-based bus stop management system that modeled stops,
-      routes, vehicles, and passenger flow within a larger transit simulation environment.
-      The system supported dynamic state updates and realistic movement of vehicles and riders
-      across configurable transit lines.
-    </p>
-
-    <p>
-      Integrated backend simulation logic with a web-based visualization layer using JSON messaging
-      to display real-time vehicle locations, stop activity, and passenger interactions in the browser.
-      This enabled a live view of simulation progress and system behavior.
-    </p>
-
-    <p>
-      Applied object-oriented design principles, UML modeling, and collaborative Git workflows
-      while working in a multi-file team codebase. The project strengthened experience in simulation design,
-      software architecture, and full-stack system integration.
-    </p>
-
-    <div class="meta-links">
-      <span class="muted">
-        Tools: Java · Git · Web Visualization · JSON Messaging · Object-Oriented Design · Agile Development
-      </span>
-      <br>
-      <a href="https://github.com/andrewtomfohrde/BusTransitWebsite" target="_blank">
-        View GitHub Repository
-      </a>
-    </div>
-
-  </div>
-
-</article>
-
-<article class="project-card">
-
-  <div class="project-image" style="padding:0;">
-    <img src="arctic.png"
-         alt="Arctic lake segmentation using U-Net"
-         style="width:100%; height:100%; object-fit:cover;">
-  </div>
-
-  <div class="project-copy">
-
-    <h3>Arctic Lakes Segmentation using Deep Learning</h3>
-
-    <p>
-      Conducted research through the National Science Foundation AI for Earth internship
-      to develop a deep learning pipeline for identifying Arctic lake regions from
-      multi-band Sentinel-2 satellite imagery.
-    </p>
-
-    <p>
-      Designed and trained a custom U-Net convolutional neural network in PyTorch,
-      implementing a full training workflow including loss computation using Binary Cross Entropy,
-      optimizer updates with Adam, and multi-epoch evaluation of model convergence.
-    </p>
-
-    <p>
-      Applied preprocessing, visualization, and prediction overlay techniques to compare
-      segmentation outputs with ground truth labels. Model performance was evaluated using
-      confusion matrices, precision, recall, F1 score, and Intersection-over-Union (IoU)
-      to measure boundary accuracy of Arctic lake detection.
-    </p>
-
-    <div class="meta-links">
-      <span class="muted">
-        Tools: PyTorch · U-Net · Satellite Imagery · Computer Vision · Model Evaluation · Remote Sensing
-      </span>
-    </div>
-
-  </div>
-
-</article>
-
-<article class="project-card">
-
-  <div class="project-image" style="padding:0;">
-    <img src="scrabble.png"
-         alt="Scrabble AI search algorithm comparison"
-         style="width:100%; height:100%; object-fit:cover;">
-  </div>
-
-  <div class="project-copy">
-
-    <h3>Scrabble AI — Search Algorithm Comparison</h3>
-
-    <p>
-      Developed an AI-driven Scrabble simulation to compare multiple search strategies
-      for selecting optimal word placements under constrained board and tile conditions.
-    </p>
-
-    <p>
-      Implemented Monte Carlo Tree Search (MCTS), Beam Search, A*, Greedy Best-First Search,
-      and Depth-First Search in Python to explore move selection strategies and decision quality.
-      Algorithms were evaluated through head-to-head AI matchups.
-    </p>
-
-    <p>
-      Measured performance using custom metrics including win rate, runtime efficiency,
-      and memory usage. Collaborated on core game logic and testing workflows using Git,
-      strengthening experience in algorithm analysis, experimentation, and AI system design.
-    </p>
-
-    <div class="meta-links">
-      <span class="muted">
-        Tools: Python · MCTS · A* · Beam Search · Algorithm Analysis · Game AI · Performance Evaluation
-      </span>
-    </div>
-
-  </div>
-
-</article>
-
-
-
-  </div>
-</section>
-
-<section id="skills">
-  <div class="container">
-
-    <h2 class="section-title">Skills</h2>
-    <div class="section-rule"></div>
-
-    <div class="card">
-
-      <h3 class="subheading">Programming Languages</h3>
-      <p class="muted">
-        Python · Java · C · C# · JavaScript · HTML · CSS · .NET
-      </p>
-
-      <h3 class="subheading">Machine Learning & Data</h3>
-      <p class="muted">
-        PyTorch · Deep Learning · CNNs · U-Net · Computer Vision · Model Evaluation · Algorithm Analysis ·
-        Data Preprocessing · Performance Benchmarking · LLM Concepts · MySQL · RStudio · Tableau · Power BI
-      </p>
-
-      <h3 class="subheading">Systems, Tools & Platforms</h3>
-      <p class="muted">
-        Git · Agile Development · CI/CD Pipelines · AWS · Azure · Docker · Atlassian ·
-        Visual Studio · IntelliJ · GDB Debugging · Network Troubleshooting · WebSockets ·
-        JSON Messaging · Object-Oriented Design · Simulation Systems · Technical Documentation ·
-        Microsoft 365 · Excel · Active Directory · SAP (ERP) · Salesforce (CRM)
-      </p>
-
-    </div>
-
-  </div>
-</section>
+    </section>
 
     <section id="contact">
       <div class="container">
